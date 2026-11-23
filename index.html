@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3DMATRIX OFICIAL | Pedidos 3D</title>
+<link rel="icon" href="logo.jpg"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+<header class="hero">
+  <img class="logo" src="logo.jpg" alt="Logo 3DMATRIX">
+  <div><p class="eyebrow">IMPRESIÓN 3D • PERSONALIZACIÓN</p><h1>3DMATRIX <span>OFICIAL</span></h1>
+  <p>Cuéntame qué quieres imprimir y te preparo un presupuesto.</p></div>
+</header>
+<main class="panel">
+<h2>Solicita tu presupuesto</h2><p class="sub">Rellena el formulario y me pondré en contacto contigo.</p>
+<form id="orderForm">
+<label>Nombre<input name="name" required maxlength="100" placeholder="Tu nombre"></label>
+<label>Teléfono / WhatsApp<input name="phone" required maxlength="40" placeholder="Número de contacto"></label>
+<label>¿Qué quieres imprimir?<textarea name="description" required maxlength="1500" rows="4" placeholder="Describe la pieza, idea o modelo..."></textarea></label>
+<div class="twocol"><label>Medidas aproximadas<input name="dimensions" maxlength="100" placeholder="Ej. 10 x 5 x 3 cm"></label>
+<label>Color deseado<input name="color" maxlength="100" placeholder="Ej. blanco, morado..."></label></div>
+<label>Fotos o referencias (máximo 3)<input type="file" name="images" accept="image/png,image/jpeg,image/webp" multiple></label>
+<p class="hint">Puedes adjuntar hasta 3 imágenes (5 MB por archivo).</p>
+<label class="consent"><input type="checkbox" required> Acepto que se use la información enviada para responder a mi solicitud.</label>
+<input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit">Enviar solicitud <span>↗</span></button><p id="status" role="status"></p>
+</form></main>
+<footer>© 3DMATRIX OFICIAL · <a href="privacy.html">Privacidad</a></footer>
+<script src="script.js"></script></body></html>
