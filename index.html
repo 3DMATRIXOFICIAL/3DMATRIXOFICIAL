@@ -1,30 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>3DMATRIX OFICIAL | Pedidos 3D</title>
-<link rel="icon" href="logo.jpg"><link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171226">
+  <title>3DMATRIX OFICIAL | Solicitar presupuesto</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas id="snow" aria-hidden="true"></canvas>
-<header class="hero">
-  <img class="logo" src="logo.jpg" alt="Logo 3DMATRIX">
-  <div><p class="eyebrow">IMPRESIÓN 3D • PERSONALIZACIÓN</p><h1>3DMATRIX <span>OFICIAL</span></h1>
-  <p>Cuéntame qué quieres imprimir y te preparo un presupuesto.</p></div>
-</header>
-<main class="panel">
-<h2>Solicita tu presupuesto</h2><p class="sub">Rellena el formulario y me pondré en contacto contigo.</p>
-<form id="orderForm">
-<label>Nombre<input name="name" required maxlength="100" placeholder="Tu nombre"></label>
-<label>Teléfono / WhatsApp<input name="phone" required maxlength="40" placeholder="Número de contacto"></label>
-<label>¿Qué quieres imprimir?<textarea name="description" required maxlength="1500" rows="4" placeholder="Describe la pieza, idea o modelo..."></textarea></label>
-<div class="twocol"><label>Medidas aproximadas<input name="dimensions" maxlength="100" placeholder="Ej. 10 x 5 x 3 cm"></label>
-<label>Color deseado<input name="color" maxlength="100" placeholder="Ej. blanco, morado..."></label></div>
-<label>Fotos o referencias (máximo 3)<input type="file" name="images" accept="image/png,image/jpeg,image/webp" multiple></label>
-<p class="hint">Puedes adjuntar hasta 3 imágenes (5 MB por archivo).</p>
-<label class="consent"><input type="checkbox" required> Acepto que se use la información enviada para responder a mi solicitud.</label>
-<input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-<button type="submit">Enviar solicitud <span>↗</span></button><p id="status" role="status"></p>
-</form></main>
-<footer>© 3DMATRIX OFICIAL · <a href="privacy.html">Privacidad</a></footer>
-<script src="script.js"></script></body></html>
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <main class="wrap">
+    <header class="brand">
+      <img class="brand-logo" src="logo.jpg" alt="Logo 3DMATRIX OFICIAL">
+      <div><h1>3DMATRIX <span>OFICIAL</span></h1><p>Impresión 3D · Solicita tu presupuesto</p></div>
+    </header>
+
+    <section class="panel">
+      <h2>Cuéntanos qué necesitas</h2>
+      <p class="intro">Rellena los dos campos obligatorios y enviaremos tu solicitud directamente a nuestro Discord.</p>
+      <form id="orderForm">
+        <label for="name">Nombre <b class="required">Obligatorio</b></label>
+        <input id="name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required maxlength="80">
+
+        <label for="phone">Teléfono de contacto <b class="required">Obligatorio</b></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Tu número de teléfono" required maxlength="30">
+
+        <label for="description">¿Qué quieres fabricar? <b class="required">Obligatorio</b></label>
+        <textarea id="description" name="description" rows="5" placeholder="Describe la pieza, idea o trabajo que necesitas..." required maxlength="1800"></textarea>
+
+        <div class="optional-title">Información adicional <span>Opcional</span></div>
+        <label for="dimensions">Medidas aproximadas</label>
+        <input id="dimensions" name="dimensions" type="text" placeholder="Ej.: 10 × 5 × 3 cm">
+
+        <label for="color">Color deseado</label>
+        <input id="color" name="color" type="text" placeholder="Ej.: negro, blanco, rojo...">
+
+        <label for="photos">Fotografías <span class="optional">Opcional · hasta 3 imágenes</span></label>
+        <input id="photos" name="photos" type="file" accept="image/*" multiple>
+        <small class="hint">Puedes adjuntar hasta 3 imágenes. Máximo 8 MB por imagen.</small>
+
+        <label class="consent"><input id="consent" type="checkbox" required> <span>Acepto que se utilicen estos datos para responder a mi solicitud.</span></label>
+        <button id="submitBtn" type="submit">ENVIAR PEDIDO</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="privacy">Tus datos se enviarán al canal de pedidos de 3DMATRIX OFICIAL para poder responder a tu solicitud.</p>
+    </section>
+    <footer>© 3DMATRIX OFICIAL</footer>
+  </main>
+
+  <aside class="music-player" aria-label="Reproductor de música">
+    <div class="music-icon">♫</div>
+    <div class="music-info">
+      <strong>3DMATRIX MUSIC</strong>
+      <span>Música de fondo · YouTube</span>
+    </div>
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Mostrar u ocultar reproductor">MÚSICA</button>
+    <div class="youtube-frame" id="youtubeFrame" hidden>
+      <iframe
+        id="youtubeMusic"
+        title="Música de fondo de 3DMATRIX OFICIAL"
+        width="280"
+        height="158"
+        src="https://www.youtube-nocookie.com/embed/AmBBSd6CWcs?enablejsapi=1&loop=1&playlist=AmBBSd6CWcs&controls=1&rel=0"
+        allow="encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <p>La reproducción comienza cuando pulses play. El bucle depende de la disponibilidad del vídeo en YouTube.</p>
+    </div>
+  </aside>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
